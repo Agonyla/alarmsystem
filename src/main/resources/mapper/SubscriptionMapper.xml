@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.agony.alarmsystem.mapper.SubscriptionMapper">
+
+    <resultMap id="BaseResultMap" type="com.agony.alarmsystem.model.entity.Subscription">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="userId" column="userId" jdbcType="BIGINT"/>
+        <result property="taskId" column="taskId" jdbcType="BIGINT"/>
+        <result property="alertTypeId" column="alertTypeId" jdbcType="BIGINT"/>
+        <result property="dingtalkEnabled" column="dingtalkEnabled" jdbcType="TINYINT"/>
+        <result property="messageEnabled" column="messageEnabled" jdbcType="TINYINT"/>
+        <result property="phoneEnabled" column="phoneEnabled" jdbcType="TINYINT"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,userId,taskId,
+        alertTypeId,dingtalkEnabled,messageEnabled,
+        phoneEnabled,createTime,updateTime,
+        isDelete
+    </sql>
+</mapper>
