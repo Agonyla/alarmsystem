@@ -64,27 +64,27 @@ CREATE TABLE IF NOT EXISTS subscription
     INDEX idx_alert_type_id (alertTypeId)
 ) COMMENT '订阅' COLLATE = utf8mb4_unicode_ci;
 
--- 告警记录表
-CREATE TABLE IF NOT EXISTS alert_record
-(
-    id          BIGINT AUTO_INCREMENT COMMENT 'id' PRIMARY KEY,
-    userId      BIGINT                             NOT NULL COMMENT '用户ID',
-    taskId      BIGINT                             NOT NULL COMMENT '任务ID',
-    alertTypeId BIGINT                             NOT NULL COMMENT '告警类型ID',
-    channel     ENUM ('DINGTALK', 'SMS', 'PHONE')  NOT NULL COMMENT '通知渠道',
-    content     TEXT                               NULL COMMENT '告警内容',
-    createTime  datetime default CURRENT_TIMESTAMP not null comment '创建时间',
-    updateTime  datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
-    isDelete    tinyint  default 0                 not null comment '是否删除 1：删除；0：未删除',
-    FOREIGN KEY (userId) REFERENCES user (id),
-    FOREIGN KEY (taskId) REFERENCES task (id),
-    FOREIGN KEY (alertTypeId) REFERENCES alert_type (id),
-    INDEX idx_user_id (userId),
-    INDEX idx_task_id (taskId),
-    INDEX idx_alert_type_id (alertTypeId),
-    INDEX idx_channel (channel),
-    INDEX idx_create_time (createTime)
-) COMMENT '告警记录' COLLATE = utf8mb4_unicode_ci;
+# -- 告警记录表
+# CREATE TABLE IF NOT EXISTS alert_record
+# (
+#     id          BIGINT AUTO_INCREMENT COMMENT 'id' PRIMARY KEY,
+#     userId      BIGINT                             NOT NULL COMMENT '用户ID',
+#     taskId      BIGINT                             NOT NULL COMMENT '任务ID',
+#     alertTypeId BIGINT                             NOT NULL COMMENT '告警类型ID',
+#     channel     ENUM ('DINGTALK', 'SMS', 'PHONE')  NOT NULL COMMENT '通知渠道',
+#     content     TEXT                               NULL COMMENT '告警内容',
+#     createTime  datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+#     updateTime  datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+#     isDelete    tinyint  default 0                 not null comment '是否删除 1：删除；0：未删除',
+#     FOREIGN KEY (userId) REFERENCES user (id),
+#     FOREIGN KEY (taskId) REFERENCES task (id),
+#     FOREIGN KEY (alertTypeId) REFERENCES alert_type (id),
+#     INDEX idx_user_id (userId),
+#     INDEX idx_task_id (taskId),
+#     INDEX idx_alert_type_id (alertTypeId),
+#     INDEX idx_channel (channel),
+#     INDEX idx_create_time (createTime)
+# ) COMMENT '告警记录' COLLATE = utf8mb4_unicode_ci;
 
 
 INSERT INTO user (username, message, phone, dingtalkId, isDelete)

@@ -1,5 +1,6 @@
 package com.agony.alarmsystem.service;
 
+import com.agony.alarmsystem.model.dto.AlertRequest;
 import com.agony.alarmsystem.model.dto.SubscriptionDTO;
 import com.agony.alarmsystem.model.entity.Subscription;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -13,7 +14,26 @@ public interface SubscriptionService extends IService<Subscription> {
 
 
     /**
-     * 创建订阅（根据名称和编码）
+     * 创建订阅
+     *
+     * @param subscriptionDTO
+     * @return
      */
     boolean createSubscription(SubscriptionDTO subscriptionDTO);
+
+    /**
+     * 更新订阅
+     *
+     * @param subscriptionDTO
+     * @return
+     */
+    boolean updateSubscription(SubscriptionDTO subscriptionDTO);
+
+
+    /**
+     * 发送告警
+     *
+     * @param alertRequest
+     */
+    void sendAlert(AlertRequest alertRequest);
 }

@@ -13,4 +13,7 @@ public interface AlertTypeService extends IService<AlertType> {
 
 
     AlertType createAlertType(AlertTypeDTO alertTypeDTO);
+
+    AlertType getByCode(int code);
+
 }

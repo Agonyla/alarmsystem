@@ -40,6 +40,14 @@ public class AlertTypeServiceImpl extends ServiceImpl<AlertTypeMapper, AlertType
         boolean result = this.save(alertType);
         return alertType;
     }
+
+    @Override
+    public AlertType getByCode(int code) {
+        AlertCode alertCode = AlertCode.getEnumByCode(code);
+        return this.lambdaQuery().eq(AlertType::getCode, alertCode).one();
+    }
+
+
 }
 
 
